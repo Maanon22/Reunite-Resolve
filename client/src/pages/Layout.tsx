@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './Layout.css'
 
 function Layout() {
   return (
@@ -10,7 +11,7 @@ function Layout() {
             <a href="/">
               <img
                 src="../../public/images/Logo.webp"
-                alt="Logo Reunite & Resolve"
+                alt="Logo"
               />
             </a>
           </button>
