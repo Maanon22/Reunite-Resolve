@@ -1,19 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
-import './Layout.css'
+import "./Layout.css";
 
 function Layout() {
   return (
     <>
-      <Carte />
       <header>
         <section>
           <button type="button">
             <a href="/">
-              <img
-                src="../../public/images/Logo.webp"
-                alt="Logo"
-              />
+              <img src="../../public/images/Logo.webp" alt="Logo" />
             </a>
           </button>
         </section>
@@ -21,10 +17,10 @@ function Layout() {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard">Personnes disparues</Link>
+              <Link to="/toadd">Personnes disparues</Link>
             </li>
             <li>
-              <Link to="/dashboard">À propos</Link>
+              <Link to="/about">À propos</Link>
             </li>
           </ul>
         </nav>
