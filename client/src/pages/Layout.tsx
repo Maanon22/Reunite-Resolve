@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Carte from "../components/Carte";
-import "./Layout.css";
+import './Layout.css'
 
 function Layout() {
   return (
@@ -11,7 +10,10 @@ function Layout() {
         <section>
           <button type="button">
             <a href="/">
-              <img src="/images/Logo.webp" alt="Logo Reunite & Resolve" />
+              <img
+                src="../../public/images/Logo.webp"
+                alt="Logo"
+              />
             </a>
           </button>
         </section>
