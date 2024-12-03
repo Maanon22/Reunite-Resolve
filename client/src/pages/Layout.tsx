@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Carte from "../components/Carte";
 import "./Layout.css";
 
 function Layout() {
   return (
     <>
+      <Carte />
       <header>
         <section>
           <button type="button">
