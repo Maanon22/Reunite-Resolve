@@ -3,6 +3,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import "leaflet/dist/leaflet.css";
+
 /* ************************************************************************* */
 
 // Import the main app component
