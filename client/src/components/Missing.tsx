@@ -13,7 +13,9 @@ export default function Missing() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/missing")
+    const baseUrl = import.meta.env.VITE_API_URL;
+
+    fetch(`${baseUrl}/api/missing`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
