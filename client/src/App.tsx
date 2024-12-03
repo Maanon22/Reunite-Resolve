@@ -1,9 +1,11 @@
-import "./App.css";
+import Carousel from "./components/Carousel";
+import Carte from "./components/Carte";
 
 function App() {
   return (
     <>
-      <p> Je suis le composant APP</p>
+      <Carousel />
+      <Carte />
     </>
   );
 }

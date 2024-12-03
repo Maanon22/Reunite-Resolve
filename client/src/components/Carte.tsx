@@ -37,7 +37,7 @@ const pointsDisparus: Points[] = [
   { id: 19, name: "Paris", position: [48.8566, 2.3522] },
 ];
 
-function carte() {
+function Carte() {
   const [persons, setPersons] = useState<Person[]>([]);
 
   useEffect(() => {
@@ -80,4 +80,4 @@ function carte() {
   );
 }
 
-export default carte;
+export default Carte;
