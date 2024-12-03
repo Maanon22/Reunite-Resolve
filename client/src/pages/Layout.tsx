@@ -5,6 +5,7 @@ import './Layout.css'
 function Layout() {
   return (
     <>
+      <Carte />
       <header>
         <section>
           <button type="button">
