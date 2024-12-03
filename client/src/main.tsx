@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import About from "./components/About";
+import ContactForm from "./components/ContactForm";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <ContactForm />,
       },
     ], // Renders the App component for the home page
   },
