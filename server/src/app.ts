@@ -1,8 +1,8 @@
 // Load the express module to create a web application
 
 import express from "express";
-
 const app = express();
+const missing = require("./data/persons.json");
 
 // Configure it
 
@@ -64,6 +64,10 @@ import router from "./router";
 
 // Mount the API router under the "/api" endpoint
 app.use(router);
+
+app.get("/api/persons", (req, res) => {
+  res.json(missing);
+});
 
 /* ************************************************************************* */
 
