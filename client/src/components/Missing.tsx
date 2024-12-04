@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
+import Form from "./Form";
 import PersonCard from "./PersonCard";
 import './Missing.css';
 
+
+type Deposant = {
+  nom: string;
+  prenom: string;
+  email: string;
+};
 
 type Disparition = {
   id: number;
@@ -10,18 +17,32 @@ type Disparition = {
   prenom: string;
   ville_origine: string;
   dernier_lieu_connu: string;
-  deposant: {
-    nom: string;
-    prenom: string;
-    email: string;
-  };
+  deposant: Deposant;
 };
 
 export default function Missing() {
   const [disparitions, setDisparitions] = useState<Disparition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(null);
+
+  const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(
+    null,
+  );
+  const [showForm, setShowForm] = useState<boolean>(false);
+
+  const [newPerson, setNewPerson] = useState<Disparition>({
+    id: 0,
+    photo: "",
+    nom: "",
+    prenom: "",
+    ville_origine: "",
+    dernier_lieu_connu: "",
+    deposant: {
+      nom: "",
+      prenom: "",
+      email: "",
+    },
+  });
 
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_API_URL;
@@ -51,6 +72,15 @@ export default function Missing() {
     setSelectedPerson(null);
   };
 
+  const handleFormSubmit = (newPersonData: Disparition) => {
+    setDisparitions((prevDisparitions) => [...prevDisparitions, newPersonData]);
+    setShowForm(false);
+  };
+
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
   if (loading) {
     return <p className="loading-message">Chargement des données...</p>;
   }
@@ -64,29 +94,40 @@ export default function Missing() {
       {selectedPerson ? (
         <PersonCard person={selectedPerson} onClose={handleClosePersonCard} />
       ) : (
-        disparitions.map((person) => (
-          <button
-            className="button-card"
-            type="button"
-            key={person.id}
-            onClick={() => handlePersonClick(person)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                handlePersonClick(person);
-              }
-            }}
-            aria-label={`Voir les détails de ${person.prenom} ${person.nom}`}
-          >
-            <img
-              src={person.photo}
-              alt={`${person.prenom} ${person.nom}`}
-              className="person-photo"
-            />
-            <h2 className="person-name">
-              {person.prenom} {person.nom}
-            </h2>
+        
+        <div>
+          {disparitions.map((person) => (
+            <button
+              type="button"
+              key={person.id}
+              onClick={() => handlePersonClick(person)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handlePersonClick(person);
+                }
+              }}
+            >
+              <img src={person.photo} alt={`${person.prenom} ${person.nom}`} />
+              <h2>
+                {person.prenom} {person.nom}
+              </h2>
+            </button>
+          ))}
+
+          <button type="button" onClick={handleOpenForm}>
+            Déclarer une disparition
+
           </button>
-        ))
+        </div>
+      )}
+
+      {showForm && (
+        <Form
+          newPerson={newPerson}
+          setNewPerson={setNewPerson}
+          onSubmit={handleFormSubmit}
+          onClose={() => setShowForm(false)}
+        />
       )}
     </section>
   );
