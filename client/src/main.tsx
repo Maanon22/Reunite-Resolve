@@ -12,8 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 // Import the main app component
 import App from "./App";
 import About from "./components/About";
-import Missing from "./components/Missing";
 import ContactForm from "./components/ContactForm";
+import Missing from "./components/Missing";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
