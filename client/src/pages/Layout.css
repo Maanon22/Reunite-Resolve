@@ -3,11 +3,19 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+
+
   width: 100%;
+
   font-family: "Courier New", Courier, monospace;
   background: linear-gradient(135deg, #2a2a2a, #0f0f0f);
   background-repeat: no-repeat;
   background-size: cover;
+
+  color: #dcdcdc;
+}
+
+
   background-attachment: fixed;
   color: #dcdcdc;
 }
@@ -17,6 +25,7 @@ html {
   display: flex;
   flex-direction: column;
 }
+
 header {
   position: relative;
   padding: 10px;
@@ -30,7 +39,9 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
+
   z-index: 10;
+
 }
 
 header img {
@@ -74,6 +85,19 @@ nav a:hover {
 }
 
 footer {
+
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+footer p {
+  margin: 0;
+
   position: relative;
   text-align: center;
   padding: 10px 20px;
@@ -86,6 +110,7 @@ footer {
 
 footer p {
   margin: 5px 0;
+
   font-size: 1rem;
 }
 
@@ -93,6 +118,11 @@ footer a {
   color: #ff6f61;
   text-decoration: none;
   font-weight: bold;
+
+  display: block;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px #000;
+
   text-shadow: 1px 1px 3px #000;
   transition: color 0.3s, text-decoration 0.3s;
   margin: 5px 0;
@@ -102,6 +132,7 @@ footer a {
 footer p + a,
 footer a + p {
   margin-top: 0;
+
 }
 
 footer a:hover {
@@ -132,6 +163,8 @@ button[type="button"] {
 button[type="button"]:hover {
   opacity: 0.8;
 }
+
+
 
 main {
   padding: 20px;

@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Import the main app component
 import App from "./App";
 import About from "./components/About";
+import Missing from "./components/Missing";
 import ContactForm from "./components/ContactForm";
 import Layout from "./pages/Layout";
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+      },
+      {
+        path: "/missing",
+        element: <Missing />,
       },
       {
         path: "/about",
