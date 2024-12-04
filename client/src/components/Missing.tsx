@@ -1,21 +1,32 @@
 import { useEffect, useState } from "react";
+import PersonCard from "./PersonCard";
 
 type Disparition = {
   id: number;
   photo: string;
   nom: string;
   prenom: string;
+  ville_origine: string;
+  dernier_lieu_connu: string;
+  deposant: {
+    nom: string;
+    prenom: string;
+    email: string;
+  };
 };
 
 export default function Missing() {
   const [disparitions, setDisparitions] = useState<Disparition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(
+    null,
+  );
 
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_API_URL;
 
-    fetch(`${baseUrl}/api/missing`)
+    fetch(`${baseUrl}/api/persons`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -34,6 +45,14 @@ export default function Missing() {
       });
   }, []);
 
+  const handlePersonClick = (person: Disparition) => {
+    setSelectedPerson(person);
+  };
+
+  const handleClosePersonCard = () => {
+    setSelectedPerson(null);
+  };
+
   if (loading) {
     return <p>Chargement des données...</p>;
   }
@@ -44,14 +63,27 @@ export default function Missing() {
 
   return (
     <section>
-      {disparitions.map((person) => (
-        <section key={person.id}>
-          <img src={person.photo} alt={`${person.prenom} ${person.nom}`} />
-          <h2>
-            {person.prenom} {person.nom}
-          </h2>
-        </section>
-      ))}
+      {selectedPerson ? (
+        <PersonCard person={selectedPerson} onClose={handleClosePersonCard} />
+      ) : (
+        disparitions.map((person) => (
+          <button
+            type="button"
+            key={person.id}
+            onClick={() => handlePersonClick(person)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePersonClick(person);
+              }
+            }}
+          >
+            <img src={person.photo} alt={`${person.prenom} ${person.nom}`} />
+            <h2>
+              {person.prenom} {person.nom}
+            </h2>
+          </button>
+        ))
+      )}
     </section>
   );
 }

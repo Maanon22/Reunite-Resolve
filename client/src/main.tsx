@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import About from "./components/About";
+import Missing from "./components/Missing";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+      },
+      {
+        path: "/missing",
+        element: <Missing />,
       },
       {
         path: "/about",

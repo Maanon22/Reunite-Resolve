@@ -17,7 +17,7 @@ function Layout() {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard">Personnes disparues</Link>
+              <Link to="/missing">Personnes disparues</Link>
             </li>
             <li>
               <Link to="/dashboard">À propos</Link>
