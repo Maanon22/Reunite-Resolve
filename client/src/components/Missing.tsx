@@ -29,16 +29,18 @@ export default function Missing() {
     fetch(`${baseUrl}/api/persons`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Erreur API: ${response.statusText}`);
+          throw new Error(
+            "Une erreur s'est produite lors de la récupération des données.",
+          );
         }
         return response.json();
       })
       .then((data) => {
-        setDisparitions(data);
+        setDisparitions(data.disparitions);
         setLoading(false);
       })
       .catch((err) => {
-        setError(`Erreur de récupération: ${err.message}`);
+        setError(err.message);
         setLoading(false);
       });
   }, []);
