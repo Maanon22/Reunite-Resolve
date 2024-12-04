@@ -1,0 +1,25 @@
+img {
+  height: 30vh;
+}
+.box-team {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  background-color: #444;
+  margin: 2rem;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+section p {
+  padding: 3rem;
+}

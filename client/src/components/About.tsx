@@ -1,25 +1,31 @@
+import "./About.css";
+
 export default function About() {
   return (
     <main>
-      <h2>NOTRE EQUIPE</h2>
+      <h2>Notre équipe</h2>
       <section>
-        <ul>
+        <ul className="box-team">
           <li>
+            <img src="/images/Manon.webp" alt="Manon" />
             <h2>Manon</h2>
           </li>
           <li>
+            <img src="/images/Nabil.webp" alt="Nabil" />
             <h2>Nabil</h2>
           </li>
           <li>
+            <img src="/images/Govanni.webp" alt="Giovanni" />
             <h2>Giovanni</h2>
           </li>
           <li>
+            <img src="/images/Damien.webp" alt="Damien" />
             <h2>Damien</h2>
           </li>
         </ul>
       </section>
+      <h2>Notre Projet</h2>
       <section>
-        <h2>NOTRE PROJET</h2>
         <p>
           Reunite & Resolve est une entreprise fondée sur la bienveillance et
           l'entraide. Le but de ce site est de vous permettre de trouver un
