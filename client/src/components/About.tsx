@@ -4,28 +4,28 @@ export default function About() {
   return (
     <main>
       <h2>Notre équipe</h2>
-      <section>
+      <section className="wrap-about">
         <ul className="box-team">
           <li>
-            <img src="/images/Manon.webp" alt="Manon" />
+            <img className="avatar" src="/images/Manon.webp" alt="Manon" />
             <h2>Manon</h2>
           </li>
           <li>
-            <img src="/images/Nabil.webp" alt="Nabil" />
+            <img className="avatar" src="/images/Nabil.webp" alt="Nabil" />
             <h2>Nabil</h2>
           </li>
           <li>
-            <img src="/images/Govanni.webp" alt="Giovanni" />
+            <img className="avatar" src="/images/Govanni.webp" alt="Giovanni" />
             <h2>Giovanni</h2>
           </li>
           <li>
-            <img src="/images/Damien.webp" alt="Damien" />
+            <img className="avatar" src="/images/Damien.webp" alt="Damien" />
             <h2>Damien</h2>
           </li>
         </ul>
       </section>
       <h2>Notre Projet</h2>
-      <section>
+      <section className="wrap-about">
         <p>
           Reunite & Resolve est une entreprise fondée sur la bienveillance et
           l'entraide. Le but de ce site est de vous permettre de trouver un

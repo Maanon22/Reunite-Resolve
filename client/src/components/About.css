@@ -1,4 +1,4 @@
-img {
+.avatar {
   height: 30vh;
 }
 .box-team {
@@ -11,7 +11,7 @@ li {
   list-style: none;
 }
 
-section {
+.wrap-about {
   background-color: #444;
   margin: 2rem;
 }
@@ -20,6 +20,6 @@ h2 {
   margin-top: 3rem;
 }
 
-section p {
+.wrap-about p {
   padding: 3rem;
 }
