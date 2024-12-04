@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import "./Carousel.css";
 function Carousel() {
   const settings = {
     dots: true, // Affiche les points de navigation sous le carrousel

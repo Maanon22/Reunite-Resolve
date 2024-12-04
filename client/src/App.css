@@ -1,0 +1,52 @@
+/* Styles globaux */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Courier New", Courier, monospace;
+  background: linear-gradient(135deg, #2a2a2a, #0f0f0f);
+  color: #dcdcdc;
+}
+
+.intro {
+  margin: 1em;
+  padding: 15px;
+  max-width: 700em;
+  background: rgba(40, 40, 40, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.3);
+  color: #ff6f61;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.intro:first-of-type {
+  margin-top: 40px;
+}
+
+.intro p {
+  margin-bottom: 10px;
+}
+
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+  flex: 2;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 3px rgba(255, 0, 0, 0.3);
+  color: #dcdcdc;
+  text-align: right;
+  max-width: 300em;
+  max-height: 300em;
+  margin: 3em;
+  margin-right: 1.5em;
+}
+
+.accueil-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -3em;
+}
+.slick-slider.slick-initialized {
+  margin-left: 1em;
+}
