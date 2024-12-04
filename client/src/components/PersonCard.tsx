@@ -1,6 +1,3 @@
-import './PersonCard.css'
-
-
 type PersonCardProps = {
   person: {
     id: number;

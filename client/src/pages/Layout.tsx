@@ -6,8 +6,8 @@ function Layout() {
   return (
     <>
       <header>
-        <section className="button-logo">
-          <button type="button" className="buttonn">
+        <section>
+          <button type="button">
             <a href="/">
               <img src="../../public/images/Logo.webp" alt="Logo" />
             </a>
