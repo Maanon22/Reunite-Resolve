@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PersonCard from "./PersonCard";
+import './Missing.css';
+
 
 type Disparition = {
   id: number;
@@ -19,9 +21,7 @@ export default function Missing() {
   const [disparitions, setDisparitions] = useState<Disparition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(
-    null,
-  );
+  const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(null);
 
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_API_URL;
@@ -29,18 +29,16 @@ export default function Missing() {
     fetch(`${baseUrl}/api/persons`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(
-            "Une erreur s'est produite lors de la récupération des données.",
-          );
+          throw new Error(`Erreur API: ${response.statusText}`);
         }
         return response.json();
       })
       .then((data) => {
-        setDisparitions(data.disparitions);
+        setDisparitions(data);
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        setError(`Erreur de récupération: ${err.message}`);
         setLoading(false);
       });
   }, []);
@@ -54,20 +52,21 @@ export default function Missing() {
   };
 
   if (loading) {
-    return <p>Chargement des données...</p>;
+    return <p className="loading-message">Chargement des données...</p>;
   }
 
   if (error) {
-    return <p>Erreur : {error}</p>;
+    return <p className="error-message">Erreur : {error}</p>;
   }
 
   return (
-    <section>
+    <section className="missing-section">
       {selectedPerson ? (
         <PersonCard person={selectedPerson} onClose={handleClosePersonCard} />
       ) : (
         disparitions.map((person) => (
           <button
+            className="button-card"
             type="button"
             key={person.id}
             onClick={() => handlePersonClick(person)}
@@ -76,9 +75,14 @@ export default function Missing() {
                 handlePersonClick(person);
               }
             }}
+            aria-label={`Voir les détails de ${person.prenom} ${person.nom}`}
           >
-            <img src={person.photo} alt={`${person.prenom} ${person.nom}`} />
-            <h2>
+            <img
+              src={person.photo}
+              alt={`${person.prenom} ${person.nom}`}
+              className="person-photo"
+            />
+            <h2 className="person-name">
               {person.prenom} {person.nom}
             </h2>
           </button>
