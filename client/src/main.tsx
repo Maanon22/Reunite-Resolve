@@ -3,12 +3,17 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import "leaflet/dist/leaflet.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 /* ************************************************************************* */
 
 // Import the main app component
 import App from "./App";
 import About from "./components/About";
 import Missing from "./components/Missing";
+import ContactForm from "./components/ContactForm";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
@@ -33,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <ContactForm />,
       },
     ], // Renders the App component for the home page
   },
