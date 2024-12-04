@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Form from "./Form";
 import PersonCard from "./PersonCard";
+import './Missing.css';
+
 
 type Deposant = {
   nom: string;
@@ -22,6 +24,7 @@ export default function Missing() {
   const [disparitions, setDisparitions] = useState<Disparition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
   const [selectedPerson, setSelectedPerson] = useState<Disparition | null>(
     null,
   );
@@ -47,18 +50,16 @@ export default function Missing() {
     fetch(`${baseUrl}/api/persons`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(
-            "Une erreur s'est produite lors de la récupération des données.",
-          );
+          throw new Error(`Erreur API: ${response.statusText}`);
         }
         return response.json();
       })
       .then((data) => {
-        setDisparitions(data.disparitions);
+        setDisparitions(data);
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        setError(`Erreur de récupération: ${err.message}`);
         setLoading(false);
       });
   }, []);
@@ -81,18 +82,19 @@ export default function Missing() {
   };
 
   if (loading) {
-    return <p>Chargement des données...</p>;
+    return <p className="loading-message">Chargement des données...</p>;
   }
 
   if (error) {
-    return <p>Erreur : {error}</p>;
+    return <p className="error-message">Erreur : {error}</p>;
   }
 
   return (
-    <section>
+    <section className="missing-section">
       {selectedPerson ? (
         <PersonCard person={selectedPerson} onClose={handleClosePersonCard} />
       ) : (
+        
         <div>
           {disparitions.map((person) => (
             <button
@@ -114,6 +116,7 @@ export default function Missing() {
 
           <button type="button" onClick={handleOpenForm}>
             Déclarer une disparition
+
           </button>
         </div>
       )}
