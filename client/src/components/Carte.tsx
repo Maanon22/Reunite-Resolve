@@ -54,7 +54,6 @@ function Carte() {
     <MapContainer
       center={franceCenter}
       zoom={6}
-      style={{ height: "80vh", width: "65%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
