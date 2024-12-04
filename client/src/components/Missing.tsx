@@ -34,7 +34,7 @@ export default function Missing() {
         return response.json();
       })
       .then((data) => {
-        setDisparitions(data);
+        setDisparitions(data.disparitions);
         setLoading(false);
       })
       .catch((err) => {
