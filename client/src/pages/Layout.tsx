@@ -17,10 +17,7 @@ function Layout() {
         <nav>
           <ul>
             <li>
-
               <Link to="/missing">Personnes disparues</Link>
-              <Link to="/toadd">Personnes disparues</Link>
-
             </li>
             <li>
               <Link to="/about">À propos</Link>
