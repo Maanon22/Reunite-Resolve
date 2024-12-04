@@ -1,0 +1,25 @@
+.avatar {
+  height: 30vh;
+}
+.box-team {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+}
+
+li {
+  list-style: none;
+}
+
+.wrap-about {
+  background-color: #444;
+  margin: 2rem;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+.wrap-about p {
+  padding: 3rem;
+}
